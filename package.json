@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "init": "node config.js",
     "start": "node index.js",
     "debug": "node --inspect index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
