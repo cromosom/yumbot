@@ -1,4 +1,4 @@
-const http = require('http');
+const axios = require('axios');
 
 const Yum = {
 
@@ -13,34 +13,19 @@ const Yum = {
     const me = this;
 
     setInterval(function () {
-      me.app.get('/api/ordernumber/123/', function (req, res) {
-        console.log(req, res);
-      });
+      me.callAPI();
       console.log('hunger');
     }, 5000);
   },
 
   callAPI: function (path, method, postData) {
-    // const me = this;
-    //
-    // let options = {
-    //   hostname: 'localhost',
-    //   port: 8080,
-    //   path: path,
-    //   method: method,
-    //   headers: {
-    //     'Content-Type': 'application/x-www-form-urlencoded',
-    //     'Content-Length': Buffer.byteLength(postData)
-    //   }
-    // }
-    //
-    // let req = http.request(options, (res) => {
-    //   console.log(`STATUS: ${res.statusCode}`);
-    //
-    //   res.setEncoding('utf8');
-    //
-    //
-    // })
+
+    axios.get('/api', {params: {
+      ordernumber: 123
+    }}).then(res => {
+      console.log(res);
+    });
+
   }
 
 }
