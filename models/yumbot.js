@@ -1,6 +1,6 @@
 var connection = require('../libs/connection');
 
-function Rhenus () {
+function Yumbot () {
 
   this.get = function (id, result) {
     connection.acquire(function (err, con) {
@@ -11,9 +11,9 @@ function Rhenus () {
     });
   }
 
-  this.create = function (rhenus, res) {
+  this.create = function (yumbot, res) {
     connection.acquire(function (err, con) {
-      con.query('insert into r_orders set ?', rhenus, function (err, result) {
+      con.query('insert into r_orders set ?', yumbot, function (err, result) {
         con.release();
 
         if (err) {
@@ -25,9 +25,9 @@ function Rhenus () {
     });
   }
 
-  this.update = function (rhenus, res) {
+  this.update = function (yumbot, res) {
     connection.acquire(function (err, con) {
-      con.query('update r_orders set ? where id = ?', [rhenus, rhenus.id], function (err, result) {
+      con.query('update r_orders set ? where id = ?', [yumbot, yumbot.id], function (err, result) {
         con.release();
 
         if (err) {
@@ -55,4 +55,4 @@ function Rhenus () {
 
 }
 
-module.exports = new Rhenus();
+module.exports = new Yumbot();
