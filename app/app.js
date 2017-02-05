@@ -14,7 +14,7 @@ const Yum = {
 
     setInterval(function () {
       me.app.get('/api/ordernumber/123/', function (req, res) {
-        yumbot.get(req.params, res);
+        console.log(req, res);
       });
       console.log('hunger');
     }, 5000);
